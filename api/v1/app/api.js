@@ -10,7 +10,7 @@ const session = require('express-session');
 const { isValidEmail, buildTree, getAllFilesFromPath, creatUrl } = require('./bibliotheque');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 const envPath = path.join(__dirname, '../../../.env');
 if (fs.existsSync(envPath)) {
