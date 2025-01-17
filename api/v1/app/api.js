@@ -10,11 +10,12 @@ const session = require('express-session');
 const { isValidEmail, buildTree, getAllFilesFromPath, creatUrl } = require('./bibliotheque');
 
 const app = express();
-const PORT = process.env.PORT;
+var PORT;
 
 const envPath = path.join(__dirname, '../../../.env');
 if (fs.existsSync(envPath)) {
     dotenv.config({ path: envPath });
+    PORT = process.env.PORT;
     console.log('Environment variables loaded from .env file');
 } else {
     console.error('Error: .env file not found');
