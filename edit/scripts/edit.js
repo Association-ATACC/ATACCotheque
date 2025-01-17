@@ -9,14 +9,18 @@ const downloadPdfBtn = document.getElementById('downloadPdf');
 const responseDialog = document.getElementById('responseDialog');
 const responseDialogMessage = responseDialog.querySelector('.dialog-body p');
 const responseDialogCloseBtn = responseDialog.querySelector('.close-dialog');
-let pdfFilePath = '';
+var pdfFilePath = null;
 
 // Charger les données de l'annale (simulation)
 loadAnnaleData();
 
 // Gestion du formulaire
 editForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+    if (pdfFilePath == null) {
+        alert('Attendez quelque seconde et refaite la requête.');
+        return;
+    }
+    e.preventDefault(); 
     showConfirmDialog(
         'Voulez-vous enregistrer les modifications ?',
         function() {
@@ -72,8 +76,7 @@ deleteBtn.addEventListener('click', function() {
         function() {
             // Simulation de suppression
             console.log('Annale supprimée');
-            pdfFilePath = pdfViewer.src;
-            if (pdfFilePath) {
+            if (pdfFilePath != null) {
                 
                 fetch(window.location.origin + `/delete-file?file=${encodeURIComponent(pdfFilePath)}`, {
                     method: 'DELETE'
@@ -144,6 +147,7 @@ function loadAnnaleData() {
             const annaleData = response;
             document.getElementById('title').value = annaleData.title;
             document.getElementById('description').value = annaleData.description;
+            pdfFilePath = `uploads/temp/${file}/${response.files[0]}`;
             document.getElementById('pdfViewer').src = `${window.location.origin}/uploads/temp/${file}/` + response.files[0];
             loadAuxiliaryDocs(annaleData.files.slice(1));
         })
