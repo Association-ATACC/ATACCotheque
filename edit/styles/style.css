@@ -1,0 +1,545 @@
+.edit-main {
+    padding-top: 90px;
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+.edit-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.edit-header h1 {
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status-badge.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.edit-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(233, 78, 27, 0.1);
+}
+
+.pdf-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.pdf-preview {
+    width: 100%;
+    height: 500px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.pdf-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.pdf-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.right-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-delete {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #d04417;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #e9ecef;
+    color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background: #dee2e6;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+}
+
+/* Styles pour les dialogues */
+.dialog-modal {
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    background: white;
+    animation: dialogSlideIn 0.3s ease-out;
+    
+    /* Centrage parfait */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.dialog-modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    animation: backdropFadeIn 0.3s ease-out;
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialog-header h3 {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.close-dialog {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: #6c757d;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-dialog:hover {
+    background: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.dialog-body {
+    padding: 2rem 1.5rem;
+}
+
+.dialog-body p {
+    margin: 0;
+    color: #495057;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.dialog-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.dialog-footer button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.dialog-footer .cancel {
+    background: #f8f9fa;
+    color: var(--secondary-color);
+}
+
+.dialog-footer .cancel:hover {
+    background: #e9ecef;
+}
+
+.dialog-footer .confirm {
+    background: var(--primary-color);
+    color: white;
+}
+
+.dialog-footer .confirm:hover {
+    background: #d04417;
+    transform: translateY(-2px);
+}
+
+.dialog-footer .confirm:active {
+    transform: translateY(0);
+}
+
+/* Animations pour les dialogues */
+@keyframes dialogSlideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes backdropFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Styles spécifiques pour les dialogues de suppression */
+.dialog-modal[data-type="delete"] .dialog-header {
+    color: #dc3545;
+}
+
+.dialog-modal[data-type="delete"] .confirm {
+    background: #dc3545;
+}
+
+.dialog-modal[data-type="delete"] .confirm:hover {
+    background: #c82333;
+}
+
+/* Styles pour la section des documents auxiliaires */
+.auxiliary-docs-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.auxiliary-docs-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.auxiliary-docs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.auxiliary-doc-item {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid #e9ecef;
+}
+
+.doc-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.file-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-input-wrapper input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-name {
+    padding: 0.8rem;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    flex-grow: 1;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.doc-preview {
+    height: 300px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+    border: 2px solid #e9ecef;
+}
+
+.doc-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.doc-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn-add-doc {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: white;
+    border: 2px dashed #e9ecef;
+    border-radius: 8px;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-add-doc:hover {
+    background: #fff5f0;
+    border-color: var(--primary-color);
+}
+
+.btn-preview,
+.btn-remove {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-preview {
+    background: #e9ecef;
+    color: var(--secondary-color);
+}
+
+.btn-preview:hover {
+    background: #dee2e6;
+}
+
+.btn-remove {
+    background: #fff5f5;
+    color: #dc3545;
+}
+
+.btn-remove:hover {
+    background: #dc3545;
+    color: white;
+}
+
+.add-auxiliary {
+    margin-top: 1.5rem;
+}
+
+/* Animation pour l'ajout de nouveaux documents */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auxiliary-doc-item {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .edit-container {
+        padding: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .pdf-preview {
+        height: 300px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+
+    .right-actions {
+        width: 100%;
+    }
+
+    .btn-delete {
+        width: 100%;
+    }
+
+    .doc-info {
+        grid-template-columns: 1fr;
+    }
+
+    .doc-preview {
+        height: 200px;
+    }
+
+    .doc-actions {
+        flex-direction: column;
+    }
+
+    .btn-preview,
+    .btn-remove {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .dialog-modal {
+        width: calc(100% - 2rem);
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+    }
+
+    .dialog-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .dialog-body {
+        padding: 1.5rem;
+    }
+
+    .dialog-body p {
+        font-size: 1rem;
+    }
+
+    .dialog-footer {
+        flex-direction: column-reverse;
+    }
+
+    .dialog-footer button {
+        width: 100%;
+        padding: 1rem;
+    }
+} 

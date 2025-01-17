@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page non trouvée | ATACCothèque</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/images/atacc_logo.ico">
+    <link rel="icon" type="image/png" href="/images/atacc_logo.png">
+    <link rel="icon" type="image/svg+xml" href="/images/atacc_logo.svg">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/style.css">
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .error-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .error-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            margin: 0;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin: 1rem 0 2rem;
+        }
+
+        .error-description {
+            color: #6c757d;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-home,
+        .btn-back {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-home {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-home:hover {
+            background: #d04417;
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            background: white;
+            color: var(--secondary-color);
+            border: 2px solid #e9ecef;
+        }
+
+        .btn-back:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .error-message {
+                font-size: 1.25rem;
+            }
+
+            .error-description {
+                font-size: 1rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .btn-home,
+            .btn-back {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="error-container">
+        <div class="error-content">
+            <img src="/images/atacc_logo.png" alt="Logo ATACCothèque" class="error-logo">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-message">Page non trouvée</h2>
+            <p class="error-description">
+                Oups ! La page que vous recherchez semble avoir disparu. 
+                Elle a peut-être été déplacée ou n'existe plus.
+            </p>
+            <div class="error-actions">
+                <a href="/" class="btn-home">
+                    <i class="fas fa-home"></i>
+                    Retour à l'accueil
+                </a>
+                <button onclick="history.back()" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    Page précédente
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: association.atacc@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/instatacc/" target="_blank">Instagram</a>
+                    <a href="https://universitice.univ-rouen.fr/course/view.php?id=10545" target="_blank">Universitice</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ataccothèque. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</body>
+</html> 

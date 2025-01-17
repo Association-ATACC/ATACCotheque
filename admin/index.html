@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATACCothèque - Administration</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="../images/atacc_logo.ico">
+    <link rel="icon" type="image/png" href="../images/atacc_logo.png">
+    <link rel="icon" type="image/svg+xml" href="../images/atacc_logo.svg">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script defer src="./scripts/admin.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../">
+                    <img src="../images/atacc_logo.png" alt="Logo atacc">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../catalogue/">Catalogue</a></li>
+                <li><a href="./" class="active">Admin</a></li>
+            </ul>
+            <button id="logoutBtn" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Déconnexion
+            </button>
+        </nav>
+    </header>
+
+    <main class="admin-main" style="height: 100vh;">
+        <div class="admin-header">
+            <h1>Administration ATACCothèque</h1>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="pending">Demandes en attente</button>
+        </div>
+
+        <h2>Demandes d'ajout en attente</h2>
+
+        <section id="pendingSection" class="admin-section">
+                <div class="request-card" id="template-card" style="display: none;">
+                    <div class="request-header">
+                        <h3 class="titre-annale"></h3>
+                        <span class="request-date">Soumis le <span class="soumision-date"></span></span>
+                    </div>
+                    <div class="request-details">
+                        <p><strong>Type :</strong> <span class="type-annale"></span></p>
+                        <p><strong>Année :</strong> <span class="date-annale"></span></p>
+                        <p><strong>Description :</strong> <span class="desc-annale"></span></p>
+                    </div>
+                    <div class="pdf-preview">
+                        <iframe class="preview-pdf" src="#" title="Aperçu du PDF"></iframe>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-accept">
+                            <i class="fas fa-check"></i> Examiner
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

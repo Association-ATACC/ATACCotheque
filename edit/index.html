@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATACCothèque - Modification Annale</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="../../images/atacc_logo.ico">
+    <link rel="icon" type="image/png" href="../../images/atacc_logo.png">
+    <link rel="icon" type="image/svg+xml" href="../../images/atacc_logo.svg">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script defer src="./scripts/edit.js"></script>
+    <script defer src="./scripts/clasification.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../../">
+                    <img src="../../images/atacc_logo.png" alt="Logo atacc">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/admin/">Retour à l'admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="edit-main">
+        <div class="edit-container">
+            <div class="edit-header">
+                <h1>Modification de l'annale</h1>
+                <div class="document-status">
+                    <span class="status-badge pending">En attente</span>
+                </div>
+            </div>
+
+            <div class="edit-content">
+                <div class="edit-section">
+                    <form id="editForm" class="edit-form">
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="title">Titre de l'annale</label>
+                                <input type="text" id="title" name="title" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="filter-niveau">Niveau</label>
+                                <select id="filter-niveau" name="niveau" class="custom-select" required>
+                                    <option value="" selected>Spécification du niveau</option>
+                                    <option value="L1">L1</option>
+                                    <option value="L2">L2</option>
+                                    <option value="L3">L3</option>
+                                    <option value="M1">M1</option>
+                                    <option value="M2">M2</option>
+                                    <option value="add-new">Ajouter un nouveau</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="filiere-group">
+                                <label for="filter-filiere">Filière</label>
+                                <select id="filter-filiere" name="filiere" class="custom-select" disabled required>
+                                    <option value="">Spécification de la filière</option>
+                                    <option value="add-new">Ajouter une nouvelle</option>
+                                </select>
+                                <input type="text" id="new-filiere" class="new-input" placeholder="Nouvelle filière" style="display:none;">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group" id="matiere-group">
+                                <label for="filter-matiere">Matière</label>
+                                <select id="filter-matiere" name="matiere" class="custom-select" disabled required>
+                                    <option value="">Spécification de la matière</option>
+                                    <option value="add-new">Ajouter une nouvelle matière</option>
+                                </select>
+                                <input type="text" id="new-matiere" class="new-input" placeholder="Nouvelle matière" style="display:none;">
+                            </div>
+                            <div class="form-group" id="filter-type-group">
+                                <label for="filter-type">Type d'examen</label>
+                                <select id="filter-type" name="type" class="custom-select" disabled required>
+                                    <option value="">Spécification du type de l'examen</option>
+                                    <option value="add-new">Ajouter un nouveau</option>
+                                </select>
+                                <input type="text" id="new-type" class="new-input" placeholder="Nouveau type" style="display:none;">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group" id="date-group">
+                                <label for="filter-date">Année</label>
+                                <select id="filter-date" name="date" class="custom-select" disabled required>
+                                    <option value="">Spécification de l'année</option>
+                                    <option value="add-new">Ajouter une nouvelle année</option>
+                                </select>
+                                <input type="number" min="2000" max="2099" id="new-date" class="new-input" placeholder="Nouvelle année" style="display:none;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="4"></textarea>
+                        </div>
+
+                        <div class="pdf-section">
+                            <h3>Document PDF</h3>
+                            <div class="pdf-preview">
+                                <iframe id="pdfViewer" src="" title="Aperçu du PDF"></iframe>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" class="btn-secondary" id="downloadPdf" target="_blank">
+                                    <i class="fas fa-download"></i>
+                                    Télécharger
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="auxiliary-docs-section">
+                            <h3>Documents auxiliaires</h3>
+                            <div class="auxiliary-docs-list" id="auxiliaryDocs">
+                                <!-- Les documents existants seront ajoutés ici -->
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-delete" id="deleteBtn">
+                                <i class="fas fa-trash"></i>
+                                Supprimer l'annale
+                            </button>
+                            <div class="right-actions">
+                                <button type="button" class="btn-secondary" id="cancelBtn">Annuler</button>
+                                <button type="submit" class="btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="confirmDialog" class="dialog-modal">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3>Confirmation</h3>
+                <button class="close-dialog" aria-label="Fermer">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="dialog-body">
+                <p></p>
+            </div>
+            <div class="dialog-footer">
+                <button class="cancel">
+                    <i class="fas fa-times"></i>
+                    Annuler
+                </button>
+                <button class="confirm">
+                    <i class="fas fa-check"></i>
+                    Confirmer
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="responseDialog" class="dialog-modal">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3>Réponse</h3>
+                <button class="close-dialog" aria-label="Fermer">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="dialog-body">
+                <p></p>
+            </div>
+            <div class="dialog-footer">
+                <button class="close-dialog">
+                    <i class="fas fa-check"></i>
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </dialog>
+</body>
+</html>

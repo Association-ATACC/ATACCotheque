@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATACCothèque - Visualisation</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="../images/atacc_logo.ico">
+    <link rel="icon" type="image/png" href="../images/atacc_logo.png">
+    <link rel="icon" type="image/svg+xml" href="../images/atacc_logo.svg">
+    <!-- Autres liens CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script defer src="./scripts/annale-view.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../">
+                  <img src="../images/atacc_logo.png" alt="Logo atacc">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../catalogue/">Catalogue</a></li>
+                <li><a href="../about/">À propos</a></li>
+                <li><a href="../contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="annale-view-main">
+        <div class="document-header">
+            <div class="breadcrumb">
+                <a href="../catalogue/">Catalogue</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Visualisation</span>
+            </div>
+            <h1 id="title-pdf"></h1>
+            <div class="document-meta">
+                <span class="year" id="year-pdf"><i class="far fa-calendar-alt"></i></span>
+                <span class="type"><i class="far fa-file-alt"></i> Rapport</span>
+                <span class="author"><i class="far fa-user"></i> Auteur(s)</span>
+            </div>
+        </div>
+
+        <div class="document-container">
+            <aside class="document-info">
+                <div class="info-section">
+                    <h2>Informations</h2>
+                    <ul>
+                        <li><strong>Date de publication :</strong> <span id="date-publi"></span></li>
+                        <li><strong>Nom du pdf :</strong> <span id="pdf-name"></span></li>
+                        <li><strong>Format :</strong> PDF</li>
+                        <li><strong>Taille :</strong> <span id="taille-pdf"></span></li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h2>Thématiques</h2>
+                    <div class="tags">
+                        <span class="tag">Todo</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Actions</h2>
+                    <div class="action-buttons">
+                        <a href="#" class="btn-download" id="download-pdf">
+                            <i class="fas fa-download"></i>
+                            Télécharger le PDF
+                        </a>
+                        <button class="btn-share">
+                            <i class="fas fa-share-alt"></i>
+                            Partager
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="document-content">
+                <div class="document-description">
+                    <h2>Description</h2>
+                    <p>Aucune descritption n'est disponible pour l'instant.</p>
+                </div>
+
+                <div class="document-preview">
+                    <h2>Aperçu du document</h2>
+                    <div class="pdf-viewer">
+                        <iframe id="iframe-pdf" src="../404.html" type="application/pdf"></iframe>
+                    </div>
+                </div>
+
+                <div class="related-documents" id="related-contain">
+                    <h2>Documents similaires</h2>
+                    <div class="related-grid">
+                        <div class="related-card" id="template-related" style="display: none;">
+                            <h3 class="related-title"></h3>
+                            <p class="related-desc"></p>
+                            <a href="#" class="btn-link related-link">Voir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: association.atacc@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/instatacc/" target="_blank">Instagram</a>
+                    <a href="https://universitice.univ-rouen.fr/course/view.php?id=10545" target="_blank">Universitice</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ataccothèque. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html> 

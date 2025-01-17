@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATACCothèque - Connexion Admin</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="../../images/atacc_logo.ico">
+    <link rel="icon" type="image/png" href="../../images/atacc_logo.png">
+    <link rel="icon" type="image/svg+xml" href="../../images/atacc_logo.svg">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <main class="admin-login">
+        <div class="login-container">
+            <div class="login-header">
+                <a href="../../" class="logo-link">
+                    <img src="../../images/atacc_logo.png" alt="Logo atacc" class="login-logo">
+                </a>
+                <h1>Administration ATACCothèque</h1>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Identifiant</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        required 
+                        pattern="[A-Za-z0-9_]{3,20}"
+                        title="L'identifiant doit contenir entre 3 et 20 caractères (lettres, chiffres et underscore uniquement)"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <div class="password-input">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            required
+                            minlength="8"
+                        >
+                        <button type="button" class="toggle-password" aria-label="Afficher/Masquer le mot de passe">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Se connecter</button>
+            </form>
+            <div class="login-footer">
+                <a href="../../" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="./scripts/login.js"></script>
+</body>
+</html> 

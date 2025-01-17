@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATACCothèque - Catalogue</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="../images/atacc_logo.ico">
+    <link rel="icon" type="image/png" href="../images/atacc_logo.png">
+    <link rel="icon" type="image/svg+xml" href="../images/atacc_logo.svg">
+    <!-- Autres liens CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script defer src="./scripts/catalogue.js"></script>
+    <style>
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../">
+                    <img src="../images/atacc_logo.png" alt="Logo atacc">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="./" class="active">Catalogue</a></li>
+                <li><a href="../about/">À propos</a></li>
+                <li><a href="../contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="catalogue-main">
+        <section class="search-section">
+            <h1>Catalogue de l'ATACCothèque</h1>
+            <div class="loading" id="loading">Chargement des données...</div>
+            <div class="filters">
+                <div class="search-bar">
+                    <input 
+                        type="text" 
+                        id="search" 
+                        name="search"
+                        placeholder="Cette barre de recherche n'est pas encore implémenter"
+                        pattern="[A-Za-zÀ-ÿ0-9\s\-']{2,50}"
+                        title="La recherche doit contenir entre 2 et 50 caractères"
+                        minlength="2"
+                    >
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                        Rechercher
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label for="filter-niveau">Niveau</label>
+                        <select id="filter-niveau" name="niveau">
+                            <option value="">Tous les niveaux</option>
+                            <option value="L1">L1</option>
+                            <option value="L2">L2</option>
+                            <option value="L3">L3</option>
+                            <option value="M1">M1</option>
+                            <option value="M2">M2</option>
+                        </select>
+                    </div>
+                    <div class="filter-group disabled" id="filiere-group">
+                        <label for="filter-filiere">Filière</label>
+                        <select id="filter-filiere" name="filiere" disabled>
+                            <option value="">Toutes les filières</option>
+                        </select>
+                    </div>
+                    <div class="filter-group disabled" id="matiere-group">
+                        <label for="filter-matiere">Matière</label>
+                        <select id="filter-matiere" name="matiere" disabled>
+                            <option value="">Toutes les matières</option>
+                        </select>
+                    </div>
+                    <div class="filter-group disabled" id="filter-type-group">
+                        <label for="filter-type">Type d'examen</label>
+                        <select id="filter-type" name="type" disabled>
+                            <option value="">Tous les types</option>
+                        </select>
+                    </div>
+                    <div class="filter-group disabled" id="date-group">
+                        <label for="filter-date">Année</label>
+                        <select id="filter-date" name="date" disabled>
+                            <option value="">Toutes les années</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div class="results-header">
+                <h2>Résultats de recherche</h2>
+                <div class="results-count">
+                    <span id="count"></span> documents trouvés
+                </div>
+                <div class="sort-options">
+                    <label for="sort">Trier par :</label>
+                    <select id="sort">
+                        <option value="date-desc">Plus récent</option>
+                        <option value="date-asc">Plus ancien</option>
+                        <option value="titre">Titre</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="catalogue-grid" id="catalogueGrid">
+                <div class="document-card" id="template-annale" style="display: none;">
+                    <div class="document-type"></div>
+                    <div class="document-content">
+                        <h3 class="title-annale"></h3>
+                        <p class="document-meta">
+                            <span class="semester"></span>
+                            <span class="year"></span>
+                        </p>
+                        <div class="document-tags">
+                            <span class="tag">First batch</span>
+                        </div>
+                        <p class="document-excerpt">
+                            Aucune description n'a été fournie pour ce document.
+                        </p>
+                    </div>
+                    <div class="document-actions">
+                        <a href="../annale-view/" class="btn-view">Consulter</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn" id="prev-page" disabled>
+                    <i class="fas fa-chevron-left"></i> Précédent
+                </button>
+                <div class="page-numbers"></div>
+                <button class="page-btn" id="next-page">
+                    Suivant <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: association.atacc@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/instatacc/" target="_blank">Instagram</a>
+                    <a href="https://universitice.univ-rouen.fr/course/view.php?id=10545" target="_blank">Universitice</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ataccothèque. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

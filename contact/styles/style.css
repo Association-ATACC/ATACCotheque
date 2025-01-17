@@ -1,0 +1,352 @@
+/* Variables spécifiques */
+:root {
+    --card-bg: #ffffff;
+    --icon-color: #e94e1b;
+}
+
+/* Layout principal */
+.contact-main {
+    margin-top: 74px;
+}
+
+/* Hero section */
+.contact-hero {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.contact-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Container principal */
+.contact-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+}
+
+/* Cartes d'information */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.info-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--icon-color);
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.info-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: block;
+    margin: 0.5rem 0;
+    transition: color 0.3s;
+}
+
+.info-card a:hover {
+    color: var(--secondary-color);
+}
+
+/* Formulaire de contact */
+.contact-form-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.contact-form-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(233, 78, 27, 0.1);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #d04417;
+}
+
+/* Section carte */
+.map-section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.map-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero {
+        padding: 3rem 1rem;
+    }
+
+    .contact-hero h1 {
+        font-size: 2rem;
+    }
+
+    .contact-container {
+        padding: 0 1rem;
+        margin: 2rem auto;
+    }
+
+    .map-section {
+        padding: 0 1rem;
+    }
+}
+
+/* Style pour la modale */
+.dialog-modal {
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.dialog-modal::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.dialog-content {
+    padding: 1.5rem;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(233, 78, 27, 0.1);
+}
+
+.dialog-header h3 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-dialog {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-dialog:hover {
+    background: rgba(233, 78, 27, 0.1);
+}
+
+.dialog-body {
+    margin: 1.5rem 0;
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+.dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.dialog-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.dialog-btn:hover {
+    background: #d04417;
+    transform: translateY(-2px);
+}
+
+/* Styles spécifiques pour la modale de succès */
+.dialog-modal[data-type="success"] .dialog-header {
+    border-bottom-color: rgba(40, 167, 69, 0.1);
+}
+
+.dialog-modal[data-type="success"] h3 {
+    color: #28a745;
+}
+
+.dialog-modal[data-type="success"] .dialog-btn {
+    background-color: #28a745;
+}
+
+.dialog-modal[data-type="success"] .dialog-btn:hover {
+    background-color: #218838;
+}
+
+/* Styles spécifiques pour la modale d'erreur */
+.dialog-modal[data-type="error"] .dialog-header {
+    border-bottom-color: rgba(220, 53, 69, 0.1);
+}
+
+.dialog-modal[data-type="error"] h3 {
+    color: #dc3545;
+}
+
+.dialog-modal[data-type="error"] .close-dialog {
+    color: #dc3545;
+}
+
+.dialog-modal[data-type="error"] .close-dialog:hover {
+    background: rgba(220, 53, 69, 0.1);
+}
+
+/* Animation pour la modale */
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.dialog-modal[open] {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dialog-modal {
+        width: 95%;
+        max-width: none;
+        margin: 1rem;
+    }
+
+    .dialog-content {
+        padding: 1rem;
+    }
+
+    .dialog-header h3 {
+        font-size: 1.3rem;
+    }
+}

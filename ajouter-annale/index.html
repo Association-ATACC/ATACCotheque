@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ataccothèque - Ajouter une annale</title>
+
+    <link rel="icon" type="image/x-icon" href="../images/atacc_logo.ico">
+    <link rel="icon" type="image/png" href="../images/atacc_logo.png">
+    <link rel="icon" type="image/svg+xml" href="../images/atacc_logo.svg">
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script defer src="./scripts/add-annale.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../">
+                    <img src="../images/atacc_logo.png" alt="Logo atacc">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../catalogue/">Catalogue</a></li>
+                <li><a href="../about/">À propos</a></li>
+                <li><a href="../contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="add-annale-main">
+        <section class="form-section">
+            <h1>Ajouter une annale</h1>
+            <div id="message-container"></div>
+            <form class="annale-form" id="annaleForm" action="/add-annale" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Titre du document *</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="year">Année *</label>
+                        <input type="number" id="year" name="year" min="2010" max="2030" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type de document *</label>
+                        <select id="type" name="type" required>
+                            <option value="">Sélectionnez un type</option>
+                            <option value="CC1">CC1</option>
+                            <option value="CC2">CC2</option>
+                            <option value="CC3">CC3</option>
+                            <option value="Examen">Examen</option>
+                            <option value="ESC">Seconde chance</option>
+                            <option value="TP">Examen de TP</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="file">Document PDF *</label>
+                    <div class="file-upload">
+                        <input type="file" id="file" name="files" accept=".pdf" required multiple>
+                        <span class="file-info">Format accepté : PDF (max 20MB)</span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="btn-secondary">Réinitialiser</button>
+                    <button type="submit" class="btn-primary">Ajouter l'annale</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: association.atacc@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/instatacc/" target="_blank">Instagram</a>
+                    <a href="https://universitice.univ-rouen.fr/course/view.php?id=10545" target="_blank">Universitice</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ataccothèque. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
