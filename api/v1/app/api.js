@@ -161,10 +161,6 @@ app.post('/add-annale', upload.array('files', 3), (req, res) => {
         return res.redirect('/ajouter-annale?message=Erreur: Tous les champs (titre, année, type, description) et au moins un fichier PDF sont requis.&type=error');
     }
 
-    if (typeof title !== 'string' || title.length < 2 || title.length > 100) {
-        return res.redirect('/ajouter-annale?message=Erreur: Le titre doit contenir entre 2 et 100 caractères.&type=error');
-    }
-
     if (isNaN(year) || year < 2010 || year > 2030) {
         return res.redirect('/ajouter-annale?message=Erreur: L\'année doit être comprise entre 2010 et 2030.&type=error');
     }
@@ -174,15 +170,13 @@ app.post('/add-annale', upload.array('files', 3), (req, res) => {
         return res.redirect('/ajouter-annale?message=Erreur: Le type de document est invalide.&type=error');
     }
 
-    if (typeof description !== 'string' || description.length < 5 || description.length > 1000) {
-        return res.redirect('/ajouter-annale?message=Erreur: La description doit contenir entre 10 et 1000 caractères.&type=error');
-    }
-
     files.forEach(file => {
         if (file.mimetype !== 'application/pdf') {
+
             return res.redirect('/ajouter-annale?message=Erreur: Seuls les fichiers PDF sont acceptés.&type=error');
         }
         if (file.size > 20 * 1024 * 1024) {
+
             return res.redirect('/ajouter-annale?message=Erreur: La taille maximale du fichier est de 20MB.&type=error');
         }
     });

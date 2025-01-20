@@ -8,6 +8,7 @@ function buildTree(fs, path, glob, rootDir) {
         cwd: rootDir,
         nodir: false,
         dot: true,
+        follow: true,
     });
     const root = { name: path.basename(rootDir), children: [] };
     const lookup = { '': root };
@@ -48,7 +49,8 @@ function getAllFilesFromPath(fs, path, glob, subPath, rootDir) {
     const allFiles = glob.sync("**/CC.pdf", {
         cwd: absoluteSubPath,
         nodir: true,
-        dot: true
+        dot: true,
+        follow: true,
     });
 
     const relativeFiles = allFiles.map(file => path.relative(rootDir, path.join(absoluteSubPath, file)));
