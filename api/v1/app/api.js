@@ -26,8 +26,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     secure: true,
-    httpOnly: true,
-    maxAge: -1
+    httpOnly: true
   }
 }));
 
