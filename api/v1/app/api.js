@@ -132,7 +132,11 @@ app.get('/search', async (req, res) => {
 
 app.get('/auxilary-documents', async (req, res) => {
   const { path: dirPath } = req.query;
-  const fullPath = '../../content/' + dirPath;
+  const fullPath = path.join('../../content/', dirPath);
+
+  if (!fullPath.startsWith('../../content/')) {
+    return res.status(403).send('Access denied');
+  }
 
   try {
     const files = fs.readdirSync(fullPath);
