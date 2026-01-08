@@ -27,7 +27,7 @@ app.use(session({
   cookie: {
     secure: false,
     httpOnly: true,
-    maxAge: 99999
+    maxAge: 9999999999
   }
 }));
 
@@ -208,7 +208,7 @@ app.post('/add-annale', upload.array('files', 3), (req, res) => {
     fs.renameSync(file.path, newPath);
   });
 
-  res.redirect('/ajouter-annale?message=Votre annale a été soumise avec succès et sera examinée par un administrateur.&type=success');
+  res.redirect('/admin');
 });
 
 app.delete('/delete-file', isAuthenticated, (req, res) => {
