@@ -17,7 +17,6 @@ if (fs.existsSync(envPath)) {
   console.log('Environment variables loaded from .env file');
 } else {
   console.error('Error: .env file not found');
-  process.exit();
 }
 
 app.use(session({
